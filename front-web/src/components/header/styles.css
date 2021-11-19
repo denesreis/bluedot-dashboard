@@ -1,7 +1,9 @@
 .main-header-container{
   padding-left: 55px;
   height: 80px;
-  display: flex; /* alinhando o elemento verticalmente*/
-  background-color: var(--primary-color);
-  border: 1px solid #fff; /* a borda foi somente pra confirmar como estava o alinhamento*/
+  /*display: flex; /* alinhando o elemento verticalmente*/
+ background-color: var(--primary-color);
+ display: flex;
+ align-items: center; /*Para alinhar verticalmente é preciso colocar o display: flex e o aligns-items */
+ /*border: 1px solid #fff; /* a borda foi somente pra confirmar como estava o alinhamento*/
 }
