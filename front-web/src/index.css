@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box; /*O 0tamanho de todo e qualquer elemento (*) será a soma do conteudo com a borda e padding (BASTANTE UTILIZADO) */
+}
+
+/* Definindo varíaveis das colores*/
+:root {
+  --primary-color: #283142; /* cor de fundo dos elementos - dos cards*/
+  --secondary-color: #1B2531; /*cor de fundo da tela */
+  --light-color: #E9E9E9; /*Quase branco - cor do titulo*/
+}
+
+/**/
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--light-color); /*Cor padrão dos textos vaio ser essa*/
+}
+
+/*Alterando os dados dando um reset nas tags de cabeçalho*/
+
+h1 , h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
