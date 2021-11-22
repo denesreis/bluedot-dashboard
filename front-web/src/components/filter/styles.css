@@ -8,3 +8,25 @@ padding-left: 30px;
 
 /*border: solid #fff;*/
 }
+
+.filter-input{
+  height: 45;
+  background-color: var(--secondary-color);
+  color: var(--grey-light-50-color);
+  font-size: 16px;
+  border: 1px solid var(--grey-light-100-color);
+  border-radius: 10px;
+  width: 250px;
+  padding: 12px 5px 12px 20px; /*Acima , a direita , abaixo e a esquerda*/
+}
+
+.filter-input:first-of-type { /*Primeira classe de filter-input*/
+
+  margin-right: 55px;
+
+}
+
+.filter-input::placeholder {
+  color: var(--grey-light-50-color);
+  font-size: 16px;
+}

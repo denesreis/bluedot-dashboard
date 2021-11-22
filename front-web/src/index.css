@@ -7,6 +7,8 @@
   --primary-color: #283142; /* cor de fundo dos elementos - dos cards*/
   --secondary-color: #1B2531; /*cor de fundo da tela */
   --light-color: #E9E9E9; /*Quase branco - cor do titulo*/
+  --grey-light-50-color: #9AAABE;
+  --grey-light-100-color: #384459;
 }
 
 /**/
