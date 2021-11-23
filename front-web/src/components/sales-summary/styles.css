@@ -1,0 +1,36 @@
+.sales-summary-container{
+  width: 440px;
+  display: flex;
+  flex-wrap: wrap; /*Para fazer a quebra de linha e colocar um card em baixo do outro*/
+  justify-content: space-between;
+}
+
+.sales-summary-card{
+
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /*Para organizar os elementos e alinhar não por linha na árvore DOM mas sim em colunas e vai colocar os elementos um embaixo do outro e não ao lado*/
+
+}
+
+/*Trabalhando as espeficações somente dos dois primeiros elementos que terão a borda de baixo alterada*/
+.sales-summary-card:nth-of-type(1),.sales-summary-card:nth-of-type(2){
+  margin-bottom: 45px;
+
+}
+
+
+.sales-summary-card-value{
+  color: var(--white-color);
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.sales-summary-card-label{
+  color: var(--grey-light-125-color);
+
+}
