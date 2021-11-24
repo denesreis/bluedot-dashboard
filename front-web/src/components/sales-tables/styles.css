@@ -1,0 +1,45 @@
+.sales-table-container{
+ margin-bottom: 30px;
+ padding: 30px 35px;
+
+
+}
+
+.sales-table-title{
+  font-size: 18px;
+  color: var(--light-color);
+}
+
+.sales-table{
+  width: 100%;
+  margin-top: 30px;
+  border-spacing: 0;  /*Para retirar os espaços entre as colunas da borda, para ficar linha continua*/
+
+}
+
+.sales-table thead th { /*Elemento mais baixo nível no cabeçalho*/
+  text-align: left; /*Alinhando a esquerda as colunas*/
+  height: 55px; /*Todas as linhas tem o mesmo tamanho*/
+  font-size: 16px;
+}
+
+.sales-table tbody td { /*Elemento mais baixo nível da linha do cabecalho*/
+  height: 55px;
+  border-top: 1px solid var(--grey-light-125-color); /*Definindo a borda do topo das linhas da tabela*/
+  font-size: 18px;
+  transition: background .2s; /*Quando munda o background vai aplicar um transition de 0.3 segundos para mudar o background mais lento*/
+}
+
+.sales-table tbody tr:hover > td { /*Para colocar o efeito quando ocorrer o hover por cima da linha*/
+  background-color: var(--grey-light-150-color);
+
+}
+.sales-table tbody tr:nth-child(even){ /*Para todo o elemento filho par(even)*/
+  background-color: var(--primary-color);
+
+}
+
+.sales-table tbody tr:nth-child(odd){ /*Para todo o elemento filho impar(odd)*/
+  background-color: rgb(0,0,0,0.1); /*Vai ter um rgb opaco*/
+
+}

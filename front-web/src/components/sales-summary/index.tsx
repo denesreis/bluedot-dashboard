@@ -1,5 +1,5 @@
-import React from 'react';
 import './styles.css';
+
 import SalesSummaryCard from './sales-summary-card';
 import { ReactComponent as AvatarIcon } from '../../assets/avatar-icon.svg';
 import { ReactComponent as BarChartIcon } from '../../assets/bar-chart-icon.svg';
