@@ -3,6 +3,7 @@ import './App.css';
 import Filter from './components/filter';
 import Header from './components/header';
 import PieChartCard from './components/pie-chart-card';
+import SalesByDateComponente from './components/sales-by-date';
 import SalesByDate from './components/sales-by-date';
 import SalesSummary from './components/sales-summary';
 import SalesTable from './components/sales-tables';
@@ -13,7 +14,7 @@ function App() {
 			<Header />
 			<div className="app-container">
 				<Filter />
-				<SalesByDate />
+				<SalesByDateComponente />
 				<div className="sales-overview-container">
 					<SalesSummary />
 					<PieChartCard
