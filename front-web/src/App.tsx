@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Filter from './components/filter';
 import Header from './components/header';
 import PieChartCard from './components/pie-chart-card';
-import SalesByDateComponente from './components/sales-by-date';
 import SalesByDate from './components/sales-by-date';
 import SalesSummary from './components/sales-summary';
 import SalesTable from './components/sales-tables';
+import { FilterData } from './utils/types';
 
 function App() {
+	//Criando o estado dentro do APP para poder saber o valor que esta dento fo filtro
+	const [filterData, setFilterData] = useState<FilterData>();
+
+	const onFilterChange = (filter: FilterData) => {
+		setFilterData(filter);
+		console.log({ filter });
+	};
+
 	return (
 		<>
 			<Header />
 			<div className="app-container">
-				<Filter />
-				<SalesByDateComponente />
+				<Filter onFilterChange={onFilterChange} />
+				<SalesByDate filterData={filterData} />
 				<div className="sales-overview-container">
 					<SalesSummary />
 					<PieChartCard

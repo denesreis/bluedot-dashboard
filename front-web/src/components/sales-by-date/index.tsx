@@ -3,15 +3,19 @@ import ReactApexChart from 'react-apexcharts';
 import { buildChartSeries, chartOptions, sumSalesByData } from './helpers';
 import { useEffect, useState } from 'react';
 import { makeRequest } from '../../utils/request';
-import { ChartSeriesData, SalesByDate } from '../../utils/types';
-import { formatPrice } from '../../utils/formatters';
+import { ChartSeriesData, FilterData, SalesByDate } from '../../utils/types';
+import { formatDate, formatPrice } from '../../utils/formatters';
 
-function SalesByDateComponente() {
+type Props = {
+	filterData?: FilterData
+};
+
+function SalesByDateComponente({ filterData }: Props) {
 	const [chartSeries, setChartSeries] = useState<ChartSeriesData[]>(
 		[]
 	); /* ChartSeriesData= definido no uitl/types.ts */
 
-	const [totalSum, setTotalSum] = useState(120);
+	const [totalSum, setTotalSum] = useState(0);
 
 	useEffect(() => {
 		makeRequest
@@ -23,6 +27,9 @@ function SalesByDateComponente() {
 				setChartSeries(newChartSeries);
 				const newTotalSum = sumSalesByData(response.data);
 				setTotalSum(newTotalSum);
+			})
+			.catch(() => {
+				console.error('Erro na comunicação com API Sales By Date');
 			});
 	}, []);
 
@@ -30,7 +37,11 @@ function SalesByDateComponente() {
 		<div className="sales-by-date-container base-card">
 			<div>
 				<h4 className="sales-by-date-title">Evolução das vendas</h4>
-				<span className="sales-by-date-period"> 01/01/2017 a 31/01/2017</span>
+				{filterData?.dates && (
+					<span className="sales-by-date-period">
+						{formatDate(filterData?.dates?.[0])} até {formatDate(filterData?.dates?.[1])}
+					</span>
+				)}
 			</div>
 			<div className="sales-by-date-data">
 				<div className="sales-by-date-quantity-container">
