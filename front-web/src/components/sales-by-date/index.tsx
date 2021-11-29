@@ -1,8 +1,8 @@
 import './styles.css';
 import ReactApexChart from 'react-apexcharts';
 import { buildChartSeries, chartOptions, sumSalesByData } from './helpers';
-import { useEffect, useState } from 'react';
-import { makeRequest } from '../../utils/request';
+import { useEffect, useMemo, useState } from 'react';
+import { buildFilterParams, makeRequest } from '../../utils/request';
 import { ChartSeriesData, FilterData, SalesByDate } from '../../utils/types';
 import { formatDate, formatPrice } from '../../utils/formatters';
 
@@ -17,11 +17,16 @@ function SalesByDateComponente({ filterData }: Props) {
 
 	const [totalSum, setTotalSum] = useState(0);
 
+	//Foi utilizado o useMemo() porque como como o filterData foi declarado como dependencia no useEffect() deu loop infinito
+	//Como uso do useMemo() o react memoriza o conteúdo do filtedata e só executa o makequest somente quando alterar o valor
+	const params = useMemo(() => buildFilterParams(filterData), [filterData]);
+
 	useEffect(() => {
 		makeRequest
-			.get<SalesByDate[]>(
+			/*.get<SalesByDate[]>(
 				'/sales/by-date?minDate=2017-01-01&maxDate=2017-01-31&gender=FEMALE'
 			) /*SalesByDate importado do types.ts passado como tipo "" */
+			.get<SalesByDate[]>('/sales/by-date', { params })
 			.then(response => {
 				const newChartSeries = buildChartSeries(response.data);
 				setChartSeries(newChartSeries);
@@ -31,7 +36,7 @@ function SalesByDateComponente({ filterData }: Props) {
 			.catch(() => {
 				console.error('Erro na comunicação com API Sales By Date');
 			});
-	}, []);
+	}, [params]);
 
 	return (
 		<div className="sales-by-date-container base-card">
