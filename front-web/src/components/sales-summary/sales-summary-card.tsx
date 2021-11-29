@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 
 type Props = {
-	value: number,
+	value: number | string, //pode ser tanto numero quanto string, porque na hora de exibir no sales-summary/index vai usar o toFixed qu retorna uma string
 	label: string
   icon: React.ReactNode; /*Recebendo um componente como parametro NOVIDADE */
 

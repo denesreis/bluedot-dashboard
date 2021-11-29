@@ -18,3 +18,11 @@ export type FilterData = {
   gender?: Gender;
 
 }
+
+export type SalesSummaryData = {
+  sum?: number;
+  min: number;
+  max: number;
+  avg: number;
+  count: number;
+}
