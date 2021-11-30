@@ -26,3 +26,19 @@ export type SalesSummaryData = {
   avg: number;
   count: number;
 }
+
+export type SalesByStore = {
+  storeName: string;
+  sum: number;
+}
+
+export type SalesByPaymentMethod = {
+  description : string;
+  sum: number;
+}
+
+export type PyChartConfig = {
+  labels: string[];
+  series: number[];
+}
+
