@@ -29,7 +29,7 @@ function App() {
 				setSalesByStore(newSalesByStore);
 			})
 			.catch(() => {
-				console.error('Erro na comunicação com API Sales By Date');
+				console.error('Erro na comunicação com API Sales By Store');
 			});
 	}, [params]);
 
@@ -42,7 +42,7 @@ function App() {
 				setsalesByPaymentMethod(newSalesByPaymentMethod);
 			})
 			.catch(() => {
-				console.error('Erro na comunicação com API Sales By Date');
+				console.error('Erro na comunicação com API Sales By payment-method');
 			});
 	}, [params]);
 
@@ -66,7 +66,7 @@ function App() {
 						series={salesByPaymentMethod?.series}
 					/>
 				</div>
-				<SalesTable />
+				<SalesTable filterData={filterData} />
 			</div>
 		</>
 	);

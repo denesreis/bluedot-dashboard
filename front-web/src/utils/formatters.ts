@@ -1,4 +1,4 @@
-import { FilterData } from "./types";
+import { FilterData, Gender } from "./types";
 
 export const formatPrice = (price: number) => {
   return new Intl.NumberFormat('pt-BR',{
@@ -8,8 +8,8 @@ export const formatPrice = (price: number) => {
   }).format(price);
 }
 
-export const formatDate = (date: Date) => {
-return date.toLocaleDateString();
+export const formatDate = (date: Date | string) => { //entra como parametro um date ou uma string
+return new Date(date).toLocaleDateString(); //o objeto new Date do JS aceita também um date como parametro
 }
 
 
@@ -18,4 +18,17 @@ export const formatDateToServer = (date? : Date) => {
     return date?.toISOString().substring(0,10) //date = new Date() date.toISOString()  = '2021-11-27T14:03:30.985Z'
 
   }
+}
+
+
+export const formatGender = (gender : Gender) => {
+  //Criando o tipo para retornar o genero
+  const textByGender  = {
+    MALE:  'Masculino',
+    FEMALE: 'Feminino',
+    OTHER: 'Outros',
+  }
+  return textByGender[gender];
+
+
 }
