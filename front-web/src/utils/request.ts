@@ -8,11 +8,12 @@ export const makeRequest = axios.create({
   baseURL
 })
 
-export const buildFilterParams = (filterData?: FilterData) => {
+export const buildFilterParams = (filterData?: FilterData, extraparams?: Record<string,unknown>) => { //é um objeto que é chave valor de string e unknown. Tipo de dados desconhecido
   return{
     minDate: formatDateToServer(filterData?.dates?.[0]),
     maxDate: formatDateToServer(filterData?.dates?.[1]),
-    gender: filterData?.gender
+    gender: filterData?.gender,
+    ...extraparams //passa o valor usando um SPREAD OPERATOR ...
   }
 
 }

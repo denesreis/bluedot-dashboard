@@ -23,6 +23,14 @@
   font-size: 16px;
 }
 
+.sales-table thead th:first-of-type { /*primeira th coluna do cabeçalho*/
+  padding-left: 30px;
+}
+
+.sales-table tbody td:first-of-type { /*primeira th - coluna das linhas*/
+  padding-left: 30px;
+}
+
 .sales-table tbody td { /*Elemento mais baixo nível da linha do cabecalho*/
   height: 55px;
   border-top: 1px solid var(--grey-light-125-color); /*Definindo a borda do topo das linhas da tabela*/
