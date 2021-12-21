@@ -1,4 +1,5 @@
-import { FilterData, Gender } from "./types";
+/*import { FilterData, Gender } from "./types";*/
+import { Gender } from "./types";
 
 export const formatPrice = (price: number) => {
   return new Intl.NumberFormat('pt-BR',{
