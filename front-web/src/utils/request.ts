@@ -2,7 +2,9 @@ import axios from 'axios';
 import { formatDateToServer } from './formatters';
 import { FilterData } from './types';
 
-const baseURL = "http://localhost:8080";
+/*const baseURL = "http://localhost:8080";*/
+
+export const baseURL = process.env.REACT_APP_BACKEND_URL ?? 'http://localhost:8080';
 
 export const makeRequest = axios.create({
   baseURL
